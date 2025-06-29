@@ -12,7 +12,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-} 
+}
+
 .wrapper {
   text-align: center;
 }
@@ -21,6 +22,21 @@ h1 {
   margin-bottom: 20px;
   color: #2c3e50;
 }
+
+#turn-indicator {
+  display: inline-block;
+  padding: 8px 18px;
+  background: #e3ecfa;
+  color: #2980b9;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(41, 128, 185, 0.08);
+  margin-bottom: 18px;
+  transition: background 0.3s, color 0.3s;
+}
+
+
 
 .game-container {
   display: flex;
@@ -76,17 +92,23 @@ h1 {
   border-bottom: none;
 }
 
+/* Message style: visually appealing, modern, and clear */
+.message {
+  padding: 10px 20px;
+  background-color: #e3ecfa;
+  color: #2980b9;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(41, 128, 185, 0.1);
+  margin-top: 20px;
+}
 .cell.taken {
   pointer-events: none;
   cursor: not-allowed;
 }
 
-.message {
-  font-size: 1.2rem;
-  color: #e74c3c;
-  min-height: 1.5em;
-  transition: all 0.3s ease;
-}
+/* .message class removed as it was empty */
 
 .hidden {
   display: none;
