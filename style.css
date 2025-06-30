@@ -1,4 +1,3 @@
-/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -23,7 +22,7 @@ h1 {
   color: #2c3e50;
 }
 
-#turn-indicator {
+.turn-indicator {
   display: inline-block;
   padding: 8px 18px;
   background: #e3ecfa;
@@ -35,8 +34,6 @@ h1 {
   margin-bottom: 18px;
   transition: background 0.3s, color 0.3s;
 }
-
-
 
 .game-container {
   display: flex;
@@ -103,6 +100,7 @@ h1 {
   box-shadow: 0 2px 8px rgba(41, 128, 185, 0.1);
   margin-top: 20px;
 }
+
 .cell.taken {
   pointer-events: none;
   cursor: not-allowed;
@@ -119,7 +117,7 @@ h1 {
   gap: 10px;
 }
 
-button {
+#restartButton {
   padding: 10px 20px;
   font-size: 1rem;
   border: none;
@@ -130,6 +128,40 @@ button {
   transition: background 0.2s ease;
 }
 
-button:hover {
+#restartButton:hover {
   background-color: #1c5980;
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOutSlide {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+.message {
+  animation: fadeInSlide 0.3s ease-in-out;
+}
+.hidden .message {
+  animation: fadeOutSlide 0.3s ease-in-out;
+}
+.buttons {
+  animation: fadeInSlide 0.3s ease-in-out;
+}
+.hidden .buttons {
+  animation: fadeOutSlide 0.3s ease-in-out;
 }
