@@ -10,7 +10,7 @@ console.log(restartButton); // <button id="restartButton">Restart</button>
 let currentPlayer = "X"; // Starting player
 let gameOver = false; // this variable will help us remember Has someone already won the game
 
-let turnIndicator = document.querySelector("#turn-indicator");
+let turnIndicator = document.querySelector(".turn-indicator");
 console.log(turnIndicator); // <div class="turn-indicator"></div>
 
 // Function to check for a winner
@@ -36,6 +36,8 @@ const winner = () => {
             message.textContent = `Player ${cells[a].textContent} wins!`;
             message.classList.remove("hidden");
             gameOver = true; // Set gameOver to true when a player wins
+            turnIndicator.classList.add("hidden"); // Hide the turn indicator
+            return; // Stop further checking after a win
         }
     })
 }
@@ -45,7 +47,7 @@ cells.forEach((cell) => {
         // gameOver → true = game ended → no more moves allowed
         // cell.textContent → cell already filled → no double moves 
         if (gameOver || cell.textContent) return;
-    
+
         cell.textContent = currentPlayer;
         winner();
 
@@ -66,4 +68,6 @@ restartButton.addEventListener("click", () => {
     currentPlayer = "X"; // Reset to starting player
     gameOver = false; // Reset gameOver to false
     turnIndicator.textContent = `Player ${currentPlayer}'s turn`; // Reset the turn indicator
+    turnIndicator.classList.remove("hidden"); // ✅ Show it again
+
 })
